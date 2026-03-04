@@ -12,12 +12,13 @@ public interface ISegurosDAO  {
 	/** 
 	 * Persite un nuevo seguro
 	 * @param v Seguro a persistir
+	 * @param dni DNI del cliente propietario del seguro
 	 * @return El seguro una vez persistido
 	 *         null si no se persiste el seguro porque ya existe
 	 * @throws DataAccessException si se produce un error 
 	 * en el acceso a la base de datos
 	 */
-	public Seguro creaSeguro(Seguro v) throws DataAccessException;
+	public Seguro creaSeguro(Seguro v, String dni) throws DataAccessException;
 	
 	/**
 	 * Elimina el seguro correspondiente al identificador indicado

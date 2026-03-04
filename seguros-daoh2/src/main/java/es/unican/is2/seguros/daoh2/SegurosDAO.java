@@ -17,22 +17,22 @@ import es.unican.is2.seguros.common.Seguro;
 public class SegurosDAO implements ISegurosDAO {
 
 	@Override
-	public Seguro creaSeguro(Seguro s) throws DataAccessException {
+	public Seguro creaSeguro(Seguro s, String dni) throws DataAccessException {
 		String insertStatement = String.format(
-				"insert into Seguros(matricula, fechaInicio, cobertura, potencia, conductorAdicional) values ('%s', '%s', '%s', %d, '%s')",
+				"insert into Seguros(matricula, fechaInicio, cobertura, potencia, conductorAdicional, cliente_FK) values ('%s', '%s', '%s', %d, %s, '%s')",
 				s.getMatricula(),
 				s.getFechaInicio().toString(),
 				s.getCobertura().toString(),
 				s.getPotencia(),
-				s.getConductorAdicional());
+				s.getConductorAdicional() == null ? "null" : "'" + s.getConductorAdicional() + "'",
+				dni);
 		H2ServerConnectionManager.executeSqlStatement(insertStatement);
-		return s;
+		return seguroPorMatricula(s.getMatricula());
 	}
 
 	@Override
 	public Seguro eliminaSeguro(long id) throws DataAccessException {
 		Seguro seguro = seguro(id);
-		Connection con = H2ServerConnectionManager.getConnection();
 		String statementText = "delete from Seguros where id = " + id;
 		H2ServerConnectionManager.executeSqlStatement(statementText);
 		return seguro;
@@ -41,9 +41,7 @@ public class SegurosDAO implements ISegurosDAO {
 	@Override
 	public Seguro actualizaSeguro(Seguro nuevo) throws DataAccessException {
 		Seguro seguro = null;
-		Seguro old = seguro(nuevo.getId());
 		String statementText;
-		Connection con = H2ServerConnectionManager.getConnection();
 
 		statementText = String.format(
 				"update Seguros set matricula = '%s', fechaInicio = '%s', cobertura = '%s', potencia = '%d', conductorAdicional = '%s' where id = '%d'", 
