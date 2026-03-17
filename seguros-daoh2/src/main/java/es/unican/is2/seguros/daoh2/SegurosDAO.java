@@ -73,7 +73,7 @@ public class SegurosDAO implements ISegurosDAO {
 
 	@Override
 	public List<Seguro> seguros() throws DataAccessException {
-		List<Seguro> seguros = new LinkedList<Seguro>();
+		List<Seguro> seguros = new LinkedList<>();
 		Connection con = H2ServerConnectionManager.getConnection(); 
 		try {
 			Statement statement = con.createStatement(); 

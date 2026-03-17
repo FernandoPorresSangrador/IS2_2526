@@ -1,24 +1,33 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>es.unican.is2</groupId>
-  <artifactId>seguros-parent</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
+    <groupId>es.unican.is2</groupId>
+    <artifactId>seguros-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Seguros</name> <!-- Este es el nombre por defecto en Sonar -->
 
-  <modules>
-    <module>seguros-common</module>
-    <module>seguros-business</module>
-    <module>seguros-daoh2</module>
-    <module>seguros-gui</module>
-    <module>seguros-main</module>
-  </modules>
+    <properties>
+        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
 
-  <properties>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+        <!-- Propiedades para usar SonarQube en local-->
+        <!-- modificar este token por el vuestro -->
+        <sonar.token>sqa_c650f23fb87e67aeeb0ed92d49fdb7f370c4f82a</sonar.token>
+
+        <!-- Propiedades para usar SonarCloud -->
+        
+    </properties>
+
+    <!-- Nombres de los directorios que contienen los modulos -->
+    <modules>
+        <module>seguros-common</module>
+        <module>seguros-daoh2</module>
+        <module>seguros-business</module>
+        <module>seguros-gui</module>
+        <module>seguros-main</module>
+    </modules>
+
 </project>

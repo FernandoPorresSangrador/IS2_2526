@@ -33,8 +33,7 @@ public class ClientesDAO implements IClientesDAO {
 	public Cliente cliente(String dni) throws DataAccessException {
 		Cliente result = null; 
 		Connection con = H2ServerConnectionManager.getConnection();
-		try {
-			Statement statement = con.createStatement();
+		try(Statement statement = con.createStatement()) {
 			String statementText = "select * from Clientes where dni = '"+ dni+"'";
 			ResultSet results = statement.executeQuery(statementText);
 			if (results.next()) { 
@@ -54,8 +53,6 @@ public class ClientesDAO implements IClientesDAO {
 		Cliente cliente = null;
 		Cliente old = cliente(nuevo.getDni());
 		String statementText;
-
-		Connection con = H2ServerConnectionManager.getConnection();
 
 		statementText = String.format(
 				"update Clientes set nombre = '%s', minusvalia = '%b' where dni = '%s'", 
@@ -84,10 +81,10 @@ public class ClientesDAO implements IClientesDAO {
 
 	@Override
 	public List<Cliente> clientes() throws DataAccessException {
-		List<Cliente> clientes = new LinkedList<Cliente>();
+		List<Cliente> clientes = new LinkedList<>();
 		Connection con = H2ServerConnectionManager.getConnection(); 
-		try {
-			Statement statement = con.createStatement(); 
+		try(Statement statement = con.createStatement()) {
+			
 			String statementText = "select * from Clientes"; 
 			ResultSet results = statement.executeQuery(statementText); 
 			// Procesamos cada fila como vehiculo independiente

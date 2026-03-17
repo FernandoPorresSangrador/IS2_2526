@@ -59,7 +59,7 @@ public class VistaAgente extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		listModel=  new DefaultListModel<String>();
+		listModel=  new DefaultListModel<>();
 		
 		txtTotalCliente = new JTextField();
 		txtTotalCliente.setBounds(230, 251, 180, 20);

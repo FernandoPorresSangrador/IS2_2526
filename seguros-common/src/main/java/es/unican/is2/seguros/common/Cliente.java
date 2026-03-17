@@ -15,7 +15,7 @@ public class Cliente {
     
     private boolean minusvalia;
 
-    private List<Seguro> seguros = new LinkedList<Seguro>();
+    private List<Seguro> seguros = new LinkedList<>();
     
 	/**
      * Retorna los seguros del cliente 
