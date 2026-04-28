@@ -76,6 +76,7 @@ public class VistaAgente extends JFrame {
 		contentPane.add(listSeguros);
 		listSeguros.setBorder(new LineBorder(new Color(0, 0, 0)));
 		listSeguros.setModel(listModel);
+		listSeguros.setName("listSeguros");
 		
 		JLabel lblSeguros = new JLabel("Seguros");
 		lblSeguros.setBounds(149, 93, 65, 14);
