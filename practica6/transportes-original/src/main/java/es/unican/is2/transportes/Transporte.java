@@ -18,7 +18,7 @@ public class Transporte {
 	 *
 	 * CC: 1 (base) + 1 (if horas<=0 || valor<=0) + 1 (|| cat==null = condicion adicional)
 	 *   + 1 (|| valor<=0 = condicion adicional) + 1 (if cat.equals Personas) = 5
-	 * CCog: +1 (if) +1 (|| secuencia 1) +1 (|| secuencia 2) +1 (if nivel 0) = 4
+	 * *  CCog: +1 (if) +1 (una sola secuencia de ||) +1 (segundo if, nivel 0) = 3
 	 */
 	public Transporte(double horas, CategoriaTransporte cat, int valor) throws IllegalArgumentException {
 		// CC: +1 if; +1 || primera secuencia; +1 || segunda secuencia

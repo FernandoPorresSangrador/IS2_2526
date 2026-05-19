@@ -18,7 +18,7 @@ public class Conductor {
 	/**
 	 * CC: 1 (base) + 1 (||) + 1 (||) + 1 (||) + 1 (if con 4 condiciones - 3 adicionales) = 5
 	 * Mas preciso: 1 + 1 (if) + 1 (|| adic.) + 1 (|| adic.) + 1 (|| adic.) = 5
-	 * CCog: +1 (if) +1 (|| primera secuencia) +1 (|| segunda secuencia) +1 (|| tercera secuencia) = 4
+	 *  CCog: +1 (if) +1 (una sola secuencia de ||) = 2
 	 */
 	public Conductor(String dni, String nombre, String apellido1,
 			String apellido2, String direccion) {
@@ -75,7 +75,7 @@ public class Conductor {
 	 * CC: 1 (base) + 1 (for) + 3 (cases del switch: Mercancias, MercanciasPeligrosas, Personas)
 	 *   + 1 (if dentro de Personas) = 6
 	 *   Nota: switch suma 1 por cada case (no por el switch en si)
-	 * CCog: +1 (for, nivel 0) +1 (switch, nivel 1, +1 anid) +1 (if, nivel 2, +2 anid) = 1+2+3 = 6
+	 *  CCog: for(+1) switch(+1+1 anid=+2) if(+1+2 anid=+3) else(+1 siempre) = 1+2+3+1 = 7
 	 *   Detalle: for(+1) switch(+1+1=+2) if dentro de case Personas(+1+2=+3) => total 6
 	 */
 	public double sueldo() {

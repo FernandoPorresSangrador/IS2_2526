@@ -24,7 +24,7 @@ public class Conductor {
 
 	/**
 	 * CC: 1 + 1(if) + 1(||) + 1(||) + 1(||) = 5
-	 * CCog: +1(if) +1(||) +1(||) +1(||) = 4
+	 * CCog: +1(if) +1(una sola secuencia de ||) = 2
 	 */
 	public Conductor(String dni, String nombre, String apellido1,
 			String apellido2, String direccion) {
